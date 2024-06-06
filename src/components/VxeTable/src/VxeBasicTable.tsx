@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue';
-import { computed, ref } from 'vue';
+import { defineComponent, computed, ref } from 'vue';
 import { BasicTableProps } from './types';
 import { basicProps } from './props';
 import { ignorePropKeys } from './const';
@@ -15,7 +14,7 @@ import type {
 } from 'vxe-table';
 import { Grid as VxeGrid } from 'vxe-table';
 
-import { extendSlots } from '/@/utils/helper/tsxHelper';
+import { extendSlots } from '@/utils/helper/tsxHelper';
 import { gridComponentMethodKeys } from './methods';
 import { omit } from 'lodash-es';
 

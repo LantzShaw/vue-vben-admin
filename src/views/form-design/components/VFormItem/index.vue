@@ -40,6 +40,7 @@
   </Col>
 </template>
 <script lang="ts">
+  import { type Recordable } from '@vben/types';
   import { defineComponent, reactive, toRefs, computed, PropType, unref } from 'vue';
   import { componentMap } from '../../core/formItemConfig';
   import { IVFormComponent, IFormConfig } from '../../typings/v-form-component';
@@ -47,11 +48,9 @@
   import { handleAsyncOptions } from '../../utils';
   import { omit } from 'lodash-es';
   import { Tooltip, FormItem, Divider, Col } from 'ant-design-vue';
-
-  // import FormItem from '/@/components/Form/src/components/FormItem.vue';
-
-  import { Icon } from '/@/components/Icon';
+  import Icon from '@/components/Icon/Icon.vue';
   import { useFormModelState } from '../../hooks/useFormDesignState';
+
   export default defineComponent({
     name: 'VFormItem',
     components: {
@@ -98,18 +97,18 @@
         labelCol = labelCol
           ? labelCol
           : formConfig.layout === 'horizontal'
-          ? formConfig.labelLayout === 'flex'
-            ? { style: `width:${formConfig.labelWidth}px` }
-            : formConfig.labelCol
-          : {};
+            ? formConfig.labelLayout === 'flex'
+              ? { style: `width:${formConfig.labelWidth}px` }
+              : formConfig.labelCol
+            : {};
 
         wrapperCol = wrapperCol
           ? wrapperCol
           : formConfig.layout === 'horizontal'
-          ? formConfig.labelLayout === 'flex'
-            ? { style: 'width:auto;flex:1' }
-            : formConfig.wrapperCol
-          : {};
+            ? formConfig.labelLayout === 'flex'
+              ? { style: 'width:auto;flex:1' }
+              : formConfig.wrapperCol
+            : {};
 
         const style =
           formConfig.layout === 'horizontal' && formConfig.labelLayout === 'flex'
@@ -143,7 +142,7 @@
           newConfig.rules = rules;
         }
         return newConfig;
-      }) as Recordable;
+      }) as Recordable<any>;
 
       const componentItem = computed(() => componentMap.get(props.schema.component as string));
 

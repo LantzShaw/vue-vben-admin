@@ -17,7 +17,7 @@
   import { IVFormComponent } from '../../../typings/v-form-component';
   import { remove } from '../../../utils';
   import { useFormDesignState } from '../../../hooks/useFormDesignState';
-  import Icon from '/@/components/Icon/index';
+  import Icon from '@/components/Icon/Icon.vue';
 
   export default defineComponent({
     name: 'FormNodeOperate',
@@ -54,8 +54,8 @@
                 schemas.length === 1
                   ? { component: '' }
                   : schemas.length - 1 > index
-                  ? schemas[index + 1]
-                  : schemas[index - 1];
+                    ? schemas[index + 1]
+                    : schemas[index - 1];
               formDesignMethods.handleSetSelectItem(params);
               remove(schemas, index);
               return true;

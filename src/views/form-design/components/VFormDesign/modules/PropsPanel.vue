@@ -29,6 +29,7 @@
   import { useFormDesignState } from '../../../hooks/useFormDesignState';
   import { customComponents } from '../../../core/formItemConfig';
   import { TabPane, Tabs } from 'ant-design-vue';
+
   type ChangeTabKey = 1 | 2;
   export interface IPropsPanel {
     changeTab: (key: ChangeTabKey) => void;
@@ -56,18 +57,16 @@
 </script>
 
 <style lang="less" scoped>
-  @import url(../styles/variable.less);
+  @import url('../styles/variable.less');
 
   :deep(.ant-tabs) {
     box-sizing: border-box;
 
     form {
       width: 100%;
-      position: absolute;
-      height: calc(100% - 50px);
+      height: 85vh;
       margin-right: 10px;
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: hidden auto;
     }
 
     .hint-box {
@@ -76,9 +75,9 @@
 
     .ant-form-item,
     .ant-slider-with-marks {
-      margin-left: 10px;
       margin-right: 20px;
       margin-bottom: 0;
+      margin-left: 10px;
     }
 
     .ant-form-item {
